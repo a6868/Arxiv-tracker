@@ -1,12 +1,7 @@
-categories: ["cs.CV", "cs.LG", "cs.AI"]
+# categories: ["cs.CV", "cs.LG", "cs.AI"]
+categories: ["cs"]
 keywords:
-  - "open vocabulary"
-  - "open-vocabulary"
-  - "open vocabulary segmentation"
-  - "open-vocabulary segmentation"
-  - "vision language model"
-  - "training-free"
-  - "training free"
+  - "video understanding"
 
 logic: "AND"                 # 组间逻辑：categories 与 keywords 间 AND/OR
 max_results: 30
@@ -14,7 +9,7 @@ sort_by: "lastUpdatedDate"  # 还可以是submittedDate 建议改成lastUpdatedD
 sort_order: "descending"
 
 # zh / en / both
-lang: "both"
+lang: "en"
 
 # —— 摘要设置 ——
 # mode: none / heuristic / llm
@@ -41,8 +36,8 @@ email:
 llm:
   provider: "openai-compatible"     # 兼容 OpenAI SDK 的服务
   # 硅基流动的版本
-  base_url: "https://api.siliconflow.cn"
-  model: "Qwen/Qwen2.5-7B-Instruct"
+  base_url: "https://generativelanguage.googleapis.com/v1beta/openai/"
+  model: "gemini-2.5-pro"
   api_key_env: "OPENAI_COMPAT_API_KEY"
   # Deepseek的版本
   # base_url: "https://api.deepseek.com"
@@ -62,7 +57,7 @@ llm:
 
 # —— 中文翻译设置（用 LLM 翻译 title/summary） ——
 translate:
-  enabled: true         # 是否启用
+  enabled: false         # 是否启用
   lang: "zh"            # 目前只需中文；也可扩展 en/ja 等
   fields: ["title", "summary"]   # 可扩：["title","summary","comments"]
 
@@ -75,7 +70,7 @@ site:
   accent: "#2563eb"     # 主题色（可自定义）
 
 freshness:
-  since_days: 3650           # 只看最近 N 天内新提交/更新（1=近24h）
+  since_days: 14           # 只看最近 N 天内新提交/更新（1=近24h）
   unique_only: true       # 开启跨天去重（见过的 arXiv ID 不再重复发）
   state_path: ".state/seen.json"  # 去重状态文件（会随 docs 一起提交保存）
   fallback_when_empty: false # 当今天无新增时，是否回退展示最近的Top若干（建议false）
